@@ -1,0 +1,81 @@
+/* src/components/Input/Input.module.css */
+@import '../../styles/tokens.css';
+
+.InputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+.InputGroup--sm .Input {
+  height: 28px;
+  font-size: var(--font-size-xs);
+  padding: var(--space-1) var(--space-3);
+}
+
+.InputGroup--md .Input {
+  height: 36px;
+  font-size: var(--font-size-sm);
+  padding: var(--space-2) var(--space-3);
+}
+
+.InputGroup--lg .Input {
+  height: 44px;
+  font-size: var(--font-size-md);
+  padding: var(--space-3) var(--space-4);
+}
+
+.Label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.Label--required::after {
+  content: ' *';
+  color: var(--color-danger);
+}
+
+.Input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.Input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.Input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.Input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.Input--error {
+  border-color: var(--color-danger);
+}
+
+.Input--error:focus {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px rgba(207, 34, 46, 0.1);
+}
+
+.Error {
+  font-size: var(--font-size-xs);
+  color: var(--color-danger);
+  margin-top: var(--space-1);
+}
