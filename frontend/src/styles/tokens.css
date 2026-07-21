@@ -1,24 +1,36 @@
 /* src/styles/tokens.css */
 
 :root {
-  /* ── Light Mode ── */
+  /* ── Ink & Parchment Foundation ── */
   --background: 43 33% 96%;        /* Warm parchment #FFFBF5 */
   --foreground: 222 47% 11%;       /* Deep navy ink #1E293B */
-  --card: 0 0% 100%;               /* Pure white for cards */
+  
+  /* ── Notion Accents ── */
+  --primary: 224 85% 22%;          /* Notion blue #2D7AEC */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 45 17% 86%;         /* Notion border #E8E7E4 */
+  --secondary-foreground: 222 47% 11%;
+  
+  /* ── Cards ── */
+  --card: 0 0% 100%;               /* Pure white */
   --card-border: 45 17% 86%;       /* Warm sand */
-  --primary: 195 66% 15%;          /* Deep teal-navy #0D3842 */
-  --primary-foreground: 0 0% 100%; /* White on primary */
-  --secondary: 40 40% 90%;         /* Warm beige */
-  --secondary-foreground: 222 47% 11%; /* Navy on secondary */
-  --muted: 45 20% 90%;             /* Light warm grey */
-  --muted-foreground: 220 15% 45%; /* Mid grey-blue */
-  --accent: 40 80% 60%;            /* Warm amber-gold */
-  --accent-foreground: 222 47% 11%; /* Navy on amber */
-  --destructive: 0 70% 40%;        /* Deep red */
-  --border: 45 17% 86%;            /* Warm sand */
-  --input: 45 17% 86%;             /* Warm sand */
-  --ring: 195 66% 15%;             /* Teal-navy focus ring */
-
+  
+  /* ── Semantic ── */
+  --muted: 45 20% 90%;
+  --muted-foreground: 220 15% 45%;
+  --destructive: 0 70% 40%;
+  
+  /* ── Deadline Colors ── */
+  --deadline-neutral: #F7F6F3;
+  --deadline-slight: #F5F0ED;
+  --deadline-warm: #F0E8E4;
+  --deadline-warmer: #ECDED8;
+  --deadline-warmred: #E8D0C8;
+  --deadline-reddish: #E4C0B8;
+  --deadline-red: #D4B0A8;
+  --deadline-overdue: #C8A098;
+  
   /* ── Spacing ── */
   --space-1: 4px;
   --space-2: 8px;
@@ -28,11 +40,11 @@
   --space-6: 32px;
   --space-7: 48px;
   --space-8: 64px;
-
+  
   /* ── Typography ── */
   --font-serif: 'Fraunces', Georgia, serif;
   --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
+  
   --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-md: 16px;
@@ -41,12 +53,12 @@
   --font-size-2xl: 32px;
   --font-size-3xl: 40px;
   --font-size-4xl: 48px;
-
+  
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-
+  
   /* ── Radii ── */
   --radius-sm: 4px;
   --radius-md: 6px;
@@ -54,18 +66,18 @@
   --radius-xl: 12px;
   --radius-2xl: 16px;
   --radius-full: 9999px;
-
+  
   /* ── Shadows ── */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
   --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.10);
-
+  
   /* ── Transitions ── */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.25s ease;
   --transition-slow: 0.4s ease;
-
+  
   /* ── Layout ── */
   --header-height: 64px;
   --sidebar-width: 240px;

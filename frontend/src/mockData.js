@@ -1,6 +1,6 @@
 // src/mockData.js
 
-// Mock tasks that feed into the queue from various sources
+// Mock tasks for the task queue
 export const mockTasks = [
   {
     id: 'task-1',
@@ -24,39 +24,7 @@ export const mockTasks = [
     stuck: false,
     stuckReason: '',
   },
-  {
-    id: 'task-3',
-    title: 'Submit OSS PR to Carto',
-    source: 'Community',
-    sourceType: 'community',
-    deadline: '2026-07-24',
-    priority: 'medium',
-    completed: false,
-    stuck: false,
-    stuckReason: '',
-  },
-  {
-    id: 'task-4',
-    title: 'Learn React — useEffect',
-    source: 'Learning',
-    sourceType: 'learning',
-    deadline: null,
-    priority: 'low',
-    completed: false,
-    stuck: false,
-    stuckReason: '',
-  },
-  {
-    id: 'task-5',
-    title: 'Reply to mentor feedback',
-    source: 'Mentor',
-    sourceType: 'mentor',
-    deadline: '2026-07-21',
-    priority: 'high',
-    completed: false,
-    stuck: false,
-    stuckReason: '',
-  },
+  // ... more tasks
 ];
 
 // Mock routines for "Today's Routines"
@@ -71,24 +39,71 @@ export const mockRoutines = [
     currentCount: 30,
     targetCount: 30,
   },
-  {
-    id: 'routine-2',
-    title: 'Weekly LinkedIn Post',
-    frequency: 'weekly',
-    timeStart: '14:00',
-    timeEnd: '15:00',
-    completed: false,
-    currentCount: 0,
-    targetCount: 4,
-  },
-  {
-    id: 'routine-3',
-    title: 'Weekly OSS Contribution',
-    frequency: 'weekly',
-    timeStart: '15:00',
-    timeEnd: '16:00',
-    completed: false,
-    currentCount: 0,
-    targetCount: 4,
-  },
+  // ... more routines
 ];
+
+// Summary data — aggregated from all categories
+export const mockSummaryData = {
+  projects: [
+    {
+      id: 'project-1',
+      title: 'Progress-Bar',
+      description: 'A tool that will help developers keep up with their busy schedule',
+      deadline: '2026-10-20',
+      tags: ['Personal'],
+      milestones: [
+        { id: 'm1', title: 'UI/UX', completed: true, total: 4, done: 4 },
+        { id: 'm2', title: 'Development', completed: false, total: 3, done: 0 },
+      ],
+    },
+    {
+      id: 'project-2',
+      title: 'Zone 01 Portfolio',
+      description: 'Personal portfolio website for Zone 01',
+      deadline: '2026-08-15',
+      tags: ['Personal', 'Portfolio'],
+      milestones: [
+        { id: 'm3', title: 'Design', completed: false, total: 3, done: 1 },
+        { id: 'm4', title: 'Development', completed: false, total: 3, done: 1 },
+      ],
+    },
+  ],
+  learning: [
+    {
+      id: 'goal-1',
+      title: 'Learn React',
+      provider: 'React Full Course (Udemy)',
+      type: 'Course',
+      totalModules: 16,
+      completedModules: 12,
+      keyTakeaway: 'useEffect dependencies matter.',
+      evidence: ['GitHub Repo', 'Certificate'],
+    },
+    {
+      id: 'goal-2',
+      title: 'Learn SQL',
+      provider: 'SQL for Devs (YouTube)',
+      type: 'Tutorial',
+      totalModules: 12,
+      completedModules: 3,
+      keyTakeaway: 'JOINs are still confusing.',
+      evidence: [],
+    },
+  ],
+  community: {
+    posts: {
+      linkedin: { target: 4, current: 2 },
+      twitter: { target: 4, current: 2 },
+      devto: { target: 1, current: 1 },
+    },
+    events: [
+      { id: 'e1', title: 'GDG Meetup', date: '2026-05-25', attended: true },
+      { id: 'e2', title: 'Hackathon', date: '2026-06-05', attended: false },
+    ],
+    oss: {
+      totalPRs: 5,
+      mergedPRs: 3,
+      routineCompleted: true,
+    },
+  },
+};

@@ -16,9 +16,15 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* src/index.css — add this after the body background */
 body {
   font-family: var(--font-sans);
   background: hsl(var(--background));
+  background-image: radial-gradient(
+    ellipse at 50% 0%, 
+    rgba(255, 248, 235, 0.3) 0%, 
+    transparent 70%
+  );
   color: hsl(var(--foreground));
   line-height: 1.6;
   min-height: 100vh;

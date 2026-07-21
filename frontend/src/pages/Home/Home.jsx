@@ -1,7 +1,8 @@
 // src/pages/Home/Home.jsx
 import React, { useState } from 'react';
 import { FocusTab } from './FocusTab';
-import { mockTasks, mockRoutines } from '../../mockData';
+import { SummaryTab } from './SummaryTab';
+import { mockTasks, mockRoutines, mockSummaryData } from '../../mockData';
 import styles from './Home.module.css';
 
 export const Home = () => {
@@ -67,9 +68,7 @@ export const Home = () => {
           />
         )}
         {activeTab === 'summary' && (
-          <div className={styles.Home__placeholder}>
-            <p>Summary tab coming soon...</p>
-          </div>
+          <SummaryTab data={mockSummaryData} />
         )}
       </div>
     </div>

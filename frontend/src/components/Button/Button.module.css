@@ -1,13 +1,14 @@
 /* src/components/Button/Button.module.css */
 @import '../../styles/tokens.css';
 
+/* src/components/Button/Button.module.css */
 .Button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md); /* Use token */
   font-family: var(--font-sans);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
@@ -19,7 +20,16 @@
   line-height: 1.2;
   white-space: nowrap;
   height: 36px;
+  user-select: none;
 }
+
+/* Add active state for tactile feedback */
+.Button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+/* Ensure all variants inherit the active state */
+/* Keep existing variant styles unchanged below */
 
 .Button--primary {
   background: hsl(var(--primary));

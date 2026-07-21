@@ -23,10 +23,12 @@
   background: hsl(var(--card));
   border-color: transparent;
   box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
 }
 
 .Card--elevated:hover {
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .Card--padding-none {
@@ -47,11 +49,13 @@
 
 .Card--clickable {
   cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
 .Card--clickable:hover {
   border-color: hsl(var(--primary) / 0.3);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .Card--clickable:active {
