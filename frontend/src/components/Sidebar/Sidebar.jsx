@@ -15,10 +15,6 @@ const navItems = [
 export const Sidebar = () => {
   return (
     <nav className={styles.Sidebar}>
-      <div className={styles.Sidebar__brand}>
-        <span className={styles.Sidebar__logo}>Progress Bar</span>
-      </div>
-      
       <ul className={styles.Sidebar__nav}>
         {navItems.map((item) => (
           <li key={item.path} className={styles.Sidebar__item}>

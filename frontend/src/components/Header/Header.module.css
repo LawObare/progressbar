@@ -1,10 +1,12 @@
 /* src/components/Header/Header.module.css */
 @import '../../styles/tokens.css';
 
+/* src/components/Header/Header.module.css */
 .Header {
   height: var(--header-height);
   background: hsl(var(--card));
   border-bottom: 1px solid hsl(var(--border));
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,7 +15,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 12;
 }
 
 .Header__left {
