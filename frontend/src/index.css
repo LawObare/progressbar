@@ -1,8 +1,7 @@
 /* src/index.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap');
 @import './styles/tokens.css';
 
-/* ── Reset ── */
 *,
 *::before,
 *::after {
@@ -18,18 +17,25 @@ html {
 }
 
 body {
-  font-family: var(--font-family);
-  background-color: var(--color-bg-canvas);
-  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   line-height: 1.6;
   min-height: 100vh;
+}
+
+/* ── Typography Roles ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
 }
 
 button,
 input,
 select,
 textarea {
-  font: inherit;
+  font-family: var(--font-sans);
   color: inherit;
   border: none;
   background: none;
@@ -40,12 +46,12 @@ button {
 }
 
 a {
-  color: var(--color-accent);
+  color: hsl(var(--primary));
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--color-accent-hover);
+  color: hsl(var(--primary) / 0.8);
 }
 
 /* ── Scrollbar ── */
@@ -55,14 +61,14 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
+  background: hsl(var(--muted));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-subtle);
+  background: hsl(var(--border));
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-border-default);
+  background: hsl(var(--muted-foreground));
 }

@@ -1,5 +1,4 @@
 // src/components/Button/Button.jsx
-import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Button.module.css';
 

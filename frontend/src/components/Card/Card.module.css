@@ -1,0 +1,59 @@
+/* src/components/Card/Card.module.css */
+@import '../../styles/tokens.css';
+
+.Card {
+  background: hsl(var(--card));
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  border: 1px solid hsl(var(--border));
+  transition: all var(--transition-fast);
+}
+
+.Card--default {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+}
+
+.Card--outlined {
+  background: transparent;
+  border-color: hsl(var(--border));
+}
+
+.Card--elevated {
+  background: hsl(var(--card));
+  border-color: transparent;
+  box-shadow: var(--shadow-sm);
+}
+
+.Card--elevated:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.Card--padding-none {
+  padding: 0;
+}
+
+.Card--padding-sm {
+  padding: var(--space-3);
+}
+
+.Card--padding-md {
+  padding: var(--space-4);
+}
+
+.Card--padding-lg {
+  padding: var(--space-6);
+}
+
+.Card--clickable {
+  cursor: pointer;
+}
+
+.Card--clickable:hover {
+  border-color: hsl(var(--primary) / 0.3);
+  box-shadow: var(--shadow-sm);
+}
+
+.Card--clickable:active {
+  transform: scale(0.98);
+}

@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "prop-types": "^15.8.1"
+  },
+  "dependencies": {
+    "lucide-react": "^1.25.0"
   }
 }

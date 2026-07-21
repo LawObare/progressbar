@@ -1,5 +1,4 @@
 // src/components/Input/Input.jsx
-import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Input.module.css';
 

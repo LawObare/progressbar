@@ -1,0 +1,30 @@
+@import '../../styles/tokens.css';
+
+.Login__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+.Login__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.Login__footer {
+  text-align: center;
+  margin-top: var(--space-4);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.Login__footer a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.Login__footer a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,15 @@
+/* src/layouts/DashboardLayout.module.css */
+@import '../styles/tokens.css';
+
+.DashboardLayout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.DashboardLayout__main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  padding: var(--space-6);
+  background: var(--color-bg-canvas);
+}
