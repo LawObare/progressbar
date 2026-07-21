@@ -36,11 +36,6 @@ export const Home = () => {
 
   return (
     <div className={styles.Home}>
-      <header className={styles.Home__header}>
-        <h1 className={styles.Home__title}>Good morning, Lawrence</h1>
-        <p className={styles.Home__subtitle}>Welcome to your developer operating system.</p>
-      </header>
-
       <div className={styles.Home__tabs}>
         <button
           className={`${styles.Home__tab} ${activeTab === 'focus' ? styles['Home__tab--active'] : ''}`}

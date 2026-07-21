@@ -6,27 +6,12 @@
   margin: 0 auto;
 }
 
-.Home__header {
-  margin-bottom: var(--space-6);
-}
-
-.Home__title {
-  font-family: var(--font-serif);
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-2);
-}
-
-.Home__subtitle {
-  font-family: var(--font-sans);
-  color: hsl(var(--muted-foreground));
-}
-
 .Home__tabs {
   display: flex;
   gap: var(--space-4);
   border-bottom: 1px solid hsl(var(--border));
   margin-bottom: var(--space-6);
+  padding-bottom: 0;
 }
 
 .Home__tab {
@@ -38,6 +23,7 @@
   border-bottom: 2px solid transparent;
   transition: color var(--transition-fast), border-color var(--transition-fast);
   cursor: pointer;
+  margin-bottom: -1px;
 }
 
 .Home__tab:hover {
@@ -51,14 +37,4 @@
 
 .Home__content {
   padding-top: var(--space-2);
-}
-
-.Home__placeholder {
-  padding: var(--space-6);
-  background: hsl(var(--card));
-  border-radius: var(--radius-lg);
-  border: 1px solid hsl(var(--border));
-  text-align: center;
-  color: hsl(var(--muted-foreground));
-  font-family: var(--font-sans);
 }

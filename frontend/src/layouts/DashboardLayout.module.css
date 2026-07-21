@@ -11,5 +11,5 @@
   margin-left: var(--sidebar-width);
   margin-top: var(--header-height);
   padding: var(--space-6);
-  background: var(--color-bg-canvas);
+  background: hsl(var(--background));
 }
