@@ -1,5 +1,16 @@
 // src/pages/Projects/Projects.jsx
 import React, { useState } from 'react';
+import { 
+  FolderOpen, 
+  CheckCircle, 
+  Clock, 
+  Plus, 
+  ChevronDown, 
+  ChevronRight,
+  Tag,
+  Link2,
+  X
+} from 'lucide-react';
 import { Button } from '../../components/Button/Button';
 import { Card } from '../../components/Card/Card';
 import { mockProjects } from '../../mockData';
@@ -46,20 +57,23 @@ export const Projects = () => {
       {/* Stats strip */}
       <div className={styles.Projects__stats}>
         <div className={styles.Projects__stat}>
+          <FolderOpen className={styles.Projects__statIcon} size={20} />
           <span className={styles.Projects__statValue}>{activeProjects}</span>
           <span className={styles.Projects__statLabel}>Active</span>
         </div>
         <div className={styles.Projects__stat}>
+          <CheckCircle className={styles.Projects__statIcon} size={20} />
           <span className={styles.Projects__statValue}>{totalMilestones}</span>
           <span className={styles.Projects__statLabel}>Milestones</span>
         </div>
         <div className={styles.Projects__stat}>
+          <Clock className={styles.Projects__statIcon} size={20} />
           <span className={styles.Projects__statValue}>{completedProjects}</span>
           <span className={styles.Projects__statLabel}>Completed</span>
         </div>
       </div>
 
-      {/* Filter bar */}
+      {/* Toolbar */}
       <div className={styles.Projects__toolbar}>
         <div className={styles.Projects__filters}>
           <button
@@ -82,7 +96,8 @@ export const Projects = () => {
           </button>
         </div>
         <Button variant="primary" onClick={() => setShowCreateModal(true)}>
-          + New Project
+          <Plus size={16} />
+          New Project
         </Button>
       </div>
 
@@ -90,6 +105,7 @@ export const Projects = () => {
       <div className={styles.Projects__list}>
         {filteredProjects.length === 0 ? (
           <div className={styles.Projects__empty}>
+            <FolderOpen size={48} className={styles.Projects__emptyIcon} />
             <p>No projects yet. Create your first project!</p>
           </div>
         ) : (
@@ -123,7 +139,7 @@ export const Projects = () => {
                       {progress}%
                     </span>
                     <span className={styles.Projects__cardToggle}>
-                      {isExpanded ? '▼' : '▶'}
+                      {isExpanded ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
                     </span>
                   </div>
                 </div>
@@ -132,7 +148,10 @@ export const Projects = () => {
                   {project.tags && project.tags.length > 0 && (
                     <div className={styles.Projects__cardTags}>
                       {project.tags.map(tag => (
-                        <span key={tag} className={styles.Projects__cardTag}>{tag}</span>
+                        <span key={tag} className={styles.Projects__cardTag}>
+                          <Tag size={12} />
+                          {tag}
+                        </span>
                       ))}
                     </div>
                   )}
@@ -158,7 +177,8 @@ export const Projects = () => {
                           <div key={milestone.id} className={styles.Projects__milestone}>
                             <div className={styles.Projects__milestoneHeader}>
                               <span className={styles.Projects__milestoneTitle}>
-                                {milestone.completed ? '✓' : '○'} {milestone.title}
+                                {milestone.completed ? <CheckCircle size={14} /> : <Clock size={14} />}
+                                {milestone.title}
                               </span>
                               <span className={styles.Projects__milestoneProgress}>
                                 {taskDone}/{taskTotal} tasks
@@ -174,14 +194,15 @@ export const Projects = () => {
                               {milestone.tasks.map(task => (
                                 <li key={task.id} className={styles.Projects__task}>
                                   <span className={task.completed ? styles['Projects__task--done'] : ''}>
-                                    {task.title}
+                                    {task.completed ? '✓' : '○'} {task.title}
                                   </span>
                                 </li>
                               ))}
                             </ul>
                             {milestone.evidence && (
                               <div className={styles.Projects__evidence}>
-                                <span className={styles.Projects__evidenceLabel}>🔗 Evidence: </span>
+                                <Link2 size={12} />
+                                <span className={styles.Projects__evidenceLabel}>Evidence: </span>
                                 <a href={milestone.evidence} target="_blank" rel="noopener noreferrer">
                                   {milestone.evidence}
                                 </a>
@@ -203,7 +224,15 @@ export const Projects = () => {
       {showCreateModal && (
         <div className={styles.Projects__modalOverlay}>
           <div className={styles.Projects__modal}>
-            <h2 className={styles.Projects__modalTitle}>Create Project</h2>
+            <div className={styles.Projects__modalHeader}>
+              <h2 className={styles.Projects__modalTitle}>Create Project</h2>
+              <button 
+                className={styles.Projects__modalClose}
+                onClick={() => setShowCreateModal(false)}
+              >
+                <X size={20} />
+              </button>
+            </div>
             <form onSubmit={(e) => {
               e.preventDefault();
               setShowCreateModal(false);

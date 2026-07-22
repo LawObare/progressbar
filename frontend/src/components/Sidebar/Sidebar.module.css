@@ -43,9 +43,14 @@
 
 .Sidebar__link--active {
   color: hsl(var(--primary));
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 2px;
+}
+
+.Sidebar__linkText {
+  border-bottom: 2px solid transparent;
+}
+
+.Sidebar__link--active .Sidebar__linkText {
+  border-bottom-color: hsl(var(--primary));
 }
 
 .Sidebar__footer {

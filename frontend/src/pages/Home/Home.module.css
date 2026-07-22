@@ -15,6 +15,9 @@
 }
 
 .Home__tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   font-family: var(--font-sans);
   font-size: var(--font-size-sm);
@@ -24,6 +27,7 @@
   transition: color var(--transition-fast), border-color var(--transition-fast);
   cursor: pointer;
   margin-bottom: -1px;
+  background: transparent;
 }
 
 .Home__tab:hover {
