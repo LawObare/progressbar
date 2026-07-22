@@ -1,7 +1,6 @@
 /* src/components/Header/Header.module.css */
 @import '../../styles/tokens.css';
 
-/* src/components/Header/Header.module.css */
 .Header {
   height: var(--header-height);
   background: hsl(var(--card));
@@ -10,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-6) 0 var(--space-3);
   position: fixed;
   top: 0;
   left: 0;
@@ -24,6 +23,20 @@
   gap: var(--space-3);
 }
 
+.Header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.Header__logoImg {
+  width: 57px;
+  height: 57px;
+  border-radius: 1px;
+  object-fit: cover;
+}
+
 .Header__brand {
   font-family: var(--font-serif);
   font-size: var(--font-size-lg);
@@ -35,12 +48,6 @@
   display: flex;
   align-items: center;
   gap: var(--space-4);
-}
-
-.Header__campus {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-sm);
-  color: hsl(var(--muted-foreground));
 }
 
 .Header__user {

@@ -79,6 +79,6 @@
   --transition-slow: 0.4s ease;
   
   /* ── Layout ── */
-  --header-height: 64px;
+  --header-height: 72px;
   --sidebar-width: 240px;
 }
