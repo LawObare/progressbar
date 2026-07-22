@@ -1,0 +1,393 @@
+/* src/pages/Learning/Learning.module.css */
+@import '../../styles/tokens.css';
+
+.Learning {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ── Stats ── */
+.Learning__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.Learning__stat {
+  text-align: center;
+  padding: var(--space-4) var(--space-5);
+  background: hsl(var(--card));
+  border-radius: var(--radius-lg);
+  border: 1px solid hsl(var(--border));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.Learning__statIcon {
+  color: hsl(var(--primary));
+  opacity: 0.5;
+  margin-bottom: var(--space-1);
+}
+
+.Learning__statValue {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: hsl(var(--foreground));
+  line-height: 1.1;
+}
+
+.Learning__statLabel {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: hsl(var(--muted-foreground));
+}
+
+/* ── Toolbar ── */
+.Learning__toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.Learning__filters {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.Learning__filter {
+  padding: var(--space-1) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: hsl(var(--muted-foreground));
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  background: transparent;
+}
+
+.Learning__filter:hover {
+  color: hsl(var(--foreground));
+  background: hsl(var(--secondary) / 0.5);
+}
+
+.Learning__filter--active {
+  color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.08);
+  border-color: hsl(var(--primary) / 0.2);
+}
+
+/* ── List ── */
+.Learning__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ── Card ── */
+.Learning__card {
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  padding: var(--space-4) var(--space-5);
+}
+
+.Learning__card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.Learning__card--expanded {
+  box-shadow: var(--shadow-md);
+}
+
+.Learning__cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.Learning__cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+  min-width: 0;
+}
+
+.Learning__cardTitle {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: hsl(var(--foreground));
+}
+
+.Learning__cardMeta {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: hsl(var(--muted-foreground));
+}
+
+.Learning__cardProgress {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: hsl(var(--primary));
+  min-width: 48px;
+  text-align: right;
+}
+
+.Learning__cardToggle {
+  color: hsl(var(--muted-foreground));
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+}
+
+.Learning__cardToggle:hover {
+  background: hsl(var(--secondary));
+}
+
+.Learning__cardBody {
+  margin-top: var(--space-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.Learning__cardProgressSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.Learning__cardProgressText {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: hsl(var(--muted-foreground));
+}
+
+.Learning__cardProgressBar {
+  width: 100%;
+  height: 6px;
+  background: hsl(var(--muted));
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.Learning__cardProgressFill {
+  height: 100%;
+  background: hsl(var(--primary));
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal);
+}
+
+.Learning__cardBadge {
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-success);
+  background: hsl(var(--success) / 0.1);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* ── Detail ── */
+.Learning__cardDetail {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid hsl(var(--border));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.Learning__detailSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.Learning__detailTitle {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: hsl(var(--foreground));
+}
+
+.Learning__detailText {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: hsl(var(--text-secondary));
+  line-height: 1.6;
+}
+
+.Learning__evidenceList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.Learning__evidenceItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: hsl(var(--primary));
+  padding: var(--space-1) var(--space-3);
+  background: hsl(var(--primary) / 0.08);
+  border-radius: var(--radius-full);
+}
+
+/* ── Empty State ── */
+.Learning__empty {
+  padding: var(--space-8);
+  text-align: center;
+  background: hsl(var(--card));
+  border-radius: var(--radius-lg);
+  border: 2px dashed hsl(var(--border));
+  color: hsl(var(--muted-foreground));
+  font-family: var(--font-sans);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.Learning__emptyIcon {
+  color: hsl(var(--muted-foreground));
+  opacity: 0.4;
+}
+
+/* ── Modal ── */
+.Learning__modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+}
+
+.Learning__modal {
+  background: hsl(var(--card));
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-7);
+  max-width: 560px;
+  width: 90%;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid hsl(var(--border));
+}
+
+.Learning__modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-5);
+}
+
+.Learning__modalTitle {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: hsl(var(--foreground));
+}
+
+.Learning__modalClose {
+  background: none;
+  border: none;
+  padding: var(--space-2);
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+}
+
+.Learning__modalClose:hover {
+  background: hsl(var(--secondary));
+  color: hsl(var(--foreground));
+}
+
+.Learning__modalField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.Learning__modalRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.Learning__modalLabel {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: hsl(var(--foreground));
+}
+
+.Learning__modalInput {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.Learning__modalInput:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+.Learning__modalSelect {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  outline: none;
+  transition: border-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.Learning__modalSelect:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+.Learning__modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}

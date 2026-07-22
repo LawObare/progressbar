@@ -220,3 +220,44 @@ export const mockEvents = [
     type: 'deadline',
   },
 ];
+
+// src/mockData.js
+
+// ... existing mock data ...
+
+// Mock learning goals
+export const mockLearningGoals = [
+  {
+    id: 'goal-1',
+    title: 'Learn React',
+    provider: 'React Full Course (Udemy)',
+    type: 'Course',
+    totalModules: 16,
+    completedModules: 12,
+    keyTakeaway: 'useEffect dependencies matter.',
+    evidence: ['GitHub Repo', 'Certificate'],
+    status: 'in-progress',
+  },
+  {
+    id: 'goal-2',
+    title: 'Learn SQL',
+    provider: 'SQL for Devs (YouTube)',
+    type: 'Tutorial',
+    totalModules: 12,
+    completedModules: 3,
+    keyTakeaway: 'JOINs are still confusing.',
+    evidence: [],
+    status: 'in-progress',
+  },
+  {
+    id: 'goal-3',
+    title: 'Master Go Programming',
+    provider: 'Go by Example',
+    type: 'Book',
+    totalModules: 10,
+    completedModules: 10,
+    keyTakeaway: 'Interfaces are powerful.',
+    evidence: ['Certificate'],
+    status: 'completed',
+  },
+];
