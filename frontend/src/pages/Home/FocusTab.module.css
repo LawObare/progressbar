@@ -283,3 +283,53 @@
   gap: var(--space-3);
   margin-top: var(--space-4);
 }
+
+/* ── Events ── */
+.FocusTab__eventList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.FocusTab__eventItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  background: hsl(var(--card));
+  border-radius: var(--radius-md);
+  border: 1px solid hsl(var(--border));
+  transition: border-color var(--transition-fast);
+}
+
+.FocusTab__eventItem:hover {
+  border-color: hsl(var(--primary) / 0.3);
+}
+
+.FocusTab__eventContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.FocusTab__eventTitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: hsl(var(--foreground));
+}
+
+.FocusTab__eventDate {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: hsl(var(--muted-foreground));
+}
+
+.FocusTab__eventDays {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: hsl(var(--primary));
+  white-space: nowrap;
+}

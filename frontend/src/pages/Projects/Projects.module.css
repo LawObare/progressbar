@@ -52,15 +52,78 @@
 /* ── Toolbar ── */
 .Projects__toolbar {
   display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.Projects__toolbarRow {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.Projects__search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
+  flex: 1;
+  min-width: 200px;
+  max-width: 528px;
+  transition: border-color var(--transition-fast);
+}
+
+.Projects__search:focus-within {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+.Projects__searchIcon {
+  color: hsl(var(--muted-foreground));
+  flex-shrink: 0;
+}
+
+.Projects__searchInput {
+  flex: 1;
+  padding: var(--space-1) 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: hsl(var(--foreground));
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.Projects__searchInput::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+.Projects__searchClear {
+  background: none;
+  border: none;
+  padding: var(--space-1);
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-fast);
+}
+
+.Projects__searchClear:hover {
+  background: hsl(var(--secondary));
+  color: hsl(var(--foreground));
 }
 
 .Projects__filters {
   display: flex;
-  gap: var(--space-2);
+  gap: var(--space-1);
+  flex-wrap: wrap;
 }
 
 .Projects__filter {
@@ -85,6 +148,64 @@
   color: hsl(var(--primary));
   background: hsl(var(--primary) / 0.08);
   border-color: hsl(var(--primary) / 0.2);
+}
+
+/* ── Tag Dropdown ── */
+.Projects__tagDropdown {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-full);
+  background: hsl(var(--card));
+  transition: border-color var(--transition-fast);
+}
+
+.Projects__tagDropdown:focus-within {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+.Projects__tagDropdownIcon {
+  color: hsl(var(--muted-foreground));
+  flex-shrink: 0;
+}
+
+.Projects__tagDropdownSelect {
+  padding: var(--space-1) 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: hsl(var(--foreground));
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* ── Controls Row ── */
+.Projects__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .Projects__toolbarRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .Projects__search {
+    max-width: 100%;
+  }
+  
+  .Projects__controls {
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 /* ── List ── */

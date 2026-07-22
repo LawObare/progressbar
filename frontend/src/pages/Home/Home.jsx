@@ -1,6 +1,5 @@
 // src/pages/Home/Home.jsx
 import React, { useState } from 'react';
-import { Target, LayoutGrid } from 'lucide-react'; // ← Add these imports
 import { FocusTab } from './FocusTab';
 import { SummaryTab } from './SummaryTab';
 import { mockTasks, mockRoutines, mockSummaryData } from '../../mockData';
@@ -37,19 +36,22 @@ export const Home = () => {
 
   return (
     <div className={styles.Home}>
+      <header className={styles.Home__header}>
+        <h1 className={styles.Home__title}>Good morning, Lawrence</h1>
+        <p className={styles.Home__subtitle}>Here's what you need to focus on today.</p>
+      </header>
+
       <div className={styles.Home__tabs}>
         <button
           className={`${styles.Home__tab} ${activeTab === 'focus' ? styles['Home__tab--active'] : ''}`}
           onClick={() => setActiveTab('focus')}
         >
-          <Target size={16} />
           Focus
         </button>
         <button
           className={`${styles.Home__tab} ${activeTab === 'summary' ? styles['Home__tab--active'] : ''}`}
           onClick={() => setActiveTab('summary')}
         >
-          <LayoutGrid size={16} />
           Summary
         </button>
       </div>

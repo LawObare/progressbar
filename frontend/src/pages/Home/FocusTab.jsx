@@ -2,14 +2,15 @@
 import React, { useState } from 'react';
 import { Button } from '../../components/Button/Button';
 import { Card } from '../../components/Card/Card';
+import { mockEvents } from '../../mockData';
 import styles from './FocusTab.module.css';
 
 export const FocusTab = ({ tasks, routines, onTaskComplete, onTaskStuck, onTaskContinue, onRoutineToggle }) => {
-  const [blocker, setBlocker] = useState('');
   const [stuckExpanded, setStuckExpanded] = useState(true);
   const [showStuckModal, setShowStuckModal] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
   const [stuckReason, setStuckReason] = useState('');
+  const [events] = useState(mockEvents);
 
   // Separate active and stuck tasks
   const activeTasks = tasks.filter(t => !t.completed && !t.stuck);
@@ -39,12 +40,15 @@ export const FocusTab = ({ tasks, routines, onTaskComplete, onTaskStuck, onTaskC
     onTaskContinue(task.id);
   };
 
-  const handleSubmitBlocker = (e) => {
-    e.preventDefault();
-    if (blocker.trim()) {
-      console.log('Blocker submitted:', blocker);
-      setBlocker('');
-    }
+  // Sort events by date (soonest first)
+  const sortedEvents = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  // Get days until event
+  const getDaysUntil = (date) => {
+    const now = new Date();
+    const eventDate = new Date(date);
+    const diff = Math.ceil((eventDate - now) / (1000 * 60 * 60 * 24));
+    return diff;
   };
 
   return (
@@ -183,30 +187,34 @@ export const FocusTab = ({ tasks, routines, onTaskComplete, onTaskStuck, onTaskC
         )}
       </section>
 
-      {/* Mentor Feedback (placeholder) */}
+      {/* Upcoming Events (NEW) */}
       <section className={styles.FocusTab__section}>
-        <h2 className={styles.FocusTab__sectionTitle}>Mentor Feedback</h2>
-        <Card variant="outlined" padding="md">
-          <p className={styles.FocusTab__feedbackText}>
-            Sarah (Bocal): "Great work on the Git module!"
-          </p>
-          <Button variant="ghost" size="sm">View All →</Button>
-        </Card>
-      </section>
-
-      {/* Blockers Input */}
-      <section className={styles.FocusTab__section}>
-        <h2 className={styles.FocusTab__sectionTitle}>Blockers</h2>
-        <form onSubmit={handleSubmitBlocker} className={styles.FocusTab__blockerForm}>
-          <input
-            type="text"
-            placeholder="What's blocking you right now?"
-            value={blocker}
-            onChange={(e) => setBlocker(e.target.value)}
-            className={styles.FocusTab__blockerInput}
-          />
-          <Button type="submit" variant="primary" size="sm">Submit</Button>
-        </form>
+        <h2 className={styles.FocusTab__sectionTitle}>Upcoming Events</h2>
+        {sortedEvents.length === 0 ? (
+          <div className={styles.FocusTab__empty}>
+            <p>No upcoming events.</p>
+          </div>
+        ) : (
+          <ul className={styles.FocusTab__eventList}>
+            {sortedEvents.map((event) => {
+              const daysUntil = getDaysUntil(event.date);
+              return (
+                <li key={event.id} className={styles.FocusTab__eventItem}>
+                  <div className={styles.FocusTab__eventContent}>
+                    <span className={styles.FocusTab__eventTitle}>{event.title}</span>
+                    <span className={styles.FocusTab__eventDate}>
+                      {new Date(event.date).toLocaleDateString()}
+                      {event.location && ` · ${event.location}`}
+                    </span>
+                  </div>
+                  <span className={styles.FocusTab__eventDays}>
+                    {daysUntil <= 0 ? 'Today!' : `In ${daysUntil} days`}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </section>
 
       {/* Stuck Modal */}

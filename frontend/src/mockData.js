@@ -193,3 +193,30 @@ export const mockProjects = [
     ],
   },
 ];
+
+export const mockEvents = [
+  {
+    id: 'event-1',
+    title: 'GDG Meetup',
+    description: 'Google Developer Group meetup',
+    date: '2026-05-25',
+    location: 'Kisumu, Kenya',
+    type: 'meetup',
+  },
+  {
+    id: 'event-2',
+    title: 'Hackathon 2026',
+    description: 'Annual hackathon',
+    date: '2026-06-05',
+    location: 'Online',
+    type: 'hackathon',
+  },
+  {
+    id: 'event-3',
+    title: 'Portfolio Deadline',
+    description: 'Submit portfolio for review',
+    date: '2026-06-15',
+    location: null,
+    type: 'deadline',
+  },
+];

@@ -9,7 +9,8 @@ import {
   ChevronRight,
   Tag,
   Link2,
-  X
+  X,
+  Search
 } from 'lucide-react';
 import { Button } from '../../components/Button/Button';
 import { Card } from '../../components/Card/Card';
@@ -21,6 +22,28 @@ export const Projects = () => {
   const [expandedProject, setExpandedProject] = useState(null);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [filter, setFilter] = useState('all');
+  const [tagFilter, setTagFilter] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Collect all unique tags
+  const allTags = ['all', ...new Set(projects.flatMap(p => p.tags || []))];
+
+  // Filter projects
+  const filteredProjects = projects.filter(p => {
+    // Status filter
+    const statusMatch = filter === 'all' ? true : p.status === filter;
+    
+    // Tag filter
+    const tagMatch = tagFilter === 'all' ? true : (p.tags || []).includes(tagFilter);
+    
+    // Search filter (by title or description)
+    const searchMatch = searchQuery.trim() === '' 
+      ? true 
+      : p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.description.toLowerCase().includes(searchQuery.toLowerCase());
+    
+    return statusMatch && tagMatch && searchMatch;
+  });
 
   // Calculate stats
   const activeProjects = projects.filter(p => p.status === 'active').length;
@@ -32,12 +55,6 @@ export const Projects = () => {
   const toggleProject = (projectId) => {
     setExpandedProject(expandedProject === projectId ? null : projectId);
   };
-
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(p => 
-        filter === 'active' ? p.status === 'active' : p.status === 'completed'
-      );
 
   const getDeadlineColor = (deadline) => {
     if (!deadline) return 'transparent';
@@ -75,30 +92,67 @@ export const Projects = () => {
 
       {/* Toolbar */}
       <div className={styles.Projects__toolbar}>
-        <div className={styles.Projects__filters}>
-          <button
-            className={`${styles.Projects__filter} ${filter === 'all' ? styles['Projects__filter--active'] : ''}`}
-            onClick={() => setFilter('all')}
-          >
-            All
-          </button>
-          <button
-            className={`${styles.Projects__filter} ${filter === 'active' ? styles['Projects__filter--active'] : ''}`}
-            onClick={() => setFilter('active')}
-          >
-            Active
-          </button>
-          <button
-            className={`${styles.Projects__filter} ${filter === 'completed' ? styles['Projects__filter--active'] : ''}`}
-            onClick={() => setFilter('completed')}
-          >
-            Completed
-          </button>
+        <div className={styles.Projects__search}>
+          <Search size={16} className={styles.Projects__searchIcon} />
+          <input
+            type="text"
+            placeholder="Search projects..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className={styles.Projects__searchInput}
+          />
+          {searchQuery && (
+            <button 
+              className={styles.Projects__searchClear}
+              onClick={() => setSearchQuery('')}
+            >
+              <X size={14} />
+            </button>
+          )}
         </div>
-        <Button variant="primary" onClick={() => setShowCreateModal(true)}>
-          <Plus size={16} />
-          New Project
-        </Button>
+
+        <div className={styles.Projects__controls}>
+          <div className={styles.Projects__filters}>
+            <button
+              className={`${styles.Projects__filter} ${filter === 'all' ? styles['Projects__filter--active'] : ''}`}
+              onClick={() => setFilter('all')}
+            >
+              All
+            </button>
+            <button
+              className={`${styles.Projects__filter} ${filter === 'active' ? styles['Projects__filter--active'] : ''}`}
+              onClick={() => setFilter('active')}
+            >
+              Active
+            </button>
+            <button
+              className={`${styles.Projects__filter} ${filter === 'completed' ? styles['Projects__filter--active'] : ''}`}
+              onClick={() => setFilter('completed')}
+            >
+              Completed
+            </button>
+          </div>
+
+          <div className={styles.Projects__tagDropdown}>
+            <Tag size={14} className={styles.Projects__tagDropdownIcon} />
+            <select
+              className={styles.Projects__tagDropdownSelect}
+              value={tagFilter}
+              onChange={(e) => setTagFilter(e.target.value)}
+            >
+              {allTags.map(tag => (
+                <option key={tag} value={tag}>
+                  {tag === 'all' ? 'All Tags' : tag}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <Button variant="primary" onClick={() => setShowCreateModal(true)}>
+            <Plus size={16} />
+            New Project
+          </Button>
+        </div>
       </div>
 
       {/* Project list */}
@@ -106,7 +160,7 @@ export const Projects = () => {
         {filteredProjects.length === 0 ? (
           <div className={styles.Projects__empty}>
             <FolderOpen size={48} className={styles.Projects__emptyIcon} />
-            <p>No projects yet. Create your first project!</p>
+            <p>No projects found matching your filters.</p>
           </div>
         ) : (
           filteredProjects.map((project) => {
