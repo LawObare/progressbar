@@ -1,0 +1,386 @@
+/* src/pages/Projects/Projects.module.css */
+@import '../../styles/tokens.css';
+
+.Projects {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ── Stats ── */
+.Projects__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.Projects__stat {
+  text-align: center;
+  padding: var(--space-4);
+  background: hsl(var(--card));
+  border-radius: var(--radius-lg);
+  border: 1px solid hsl(var(--border));
+}
+
+.Projects__statValue {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: hsl(var(--foreground));
+}
+
+.Projects__statLabel {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: hsl(var(--muted-foreground));
+}
+
+/* ── Toolbar ── */
+.Projects__toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* ── List ── */
+.Projects__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.Projects__filters {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.Projects__filter {
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: hsl(var(--muted-foreground));
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.Projects__filter:hover {
+  color: hsl(var(--foreground));
+  background: hsl(var(--secondary) / 0.5);
+}
+
+.Projects__filter--active {
+  color: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+}
+
+/* ── Card ── */
+.Projects__card {
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.Projects__card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.Projects__card--expanded {
+  box-shadow: var(--shadow-md);
+}
+
+.Projects__cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Projects__cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.Projects__cardTitle {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: hsl(var(--foreground));
+}
+
+.Projects__cardDeadline {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: hsl(var(--muted-foreground));
+}
+
+.Projects__cardMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.Projects__cardProgress {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: hsl(var(--primary));
+}
+
+.Projects__cardToggle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: hsl(var(--muted-foreground));
+}
+
+.Projects__cardBody {
+  margin-top: var(--space-3);
+}
+
+.Projects__cardTags {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2);
+}
+
+.Projects__cardTag {
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.08);
+  border-radius: var(--radius-sm);
+}
+
+.Projects__cardDescription {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: hsl(var(--text-secondary));
+  margin-bottom: var(--space-2);
+}
+
+.Projects__cardProgressBar {
+  width: 100%;
+  height: 4px;
+  background: hsl(var(--muted));
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.Projects__cardProgressFill {
+  height: 100%;
+  background: hsl(var(--primary));
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal);
+}
+
+/* ── Detail ── */
+.Projects__cardDetail {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid hsl(var(--border));
+}
+
+.Projects__milestones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.Projects__milestonesTitle {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: hsl(var(--foreground));
+}
+
+.Projects__milestone {
+  padding: var(--space-3);
+  background: hsl(var(--secondary) / 0.3);
+  border-radius: var(--radius-md);
+  border-left: 3px solid hsl(var(--primary));
+}
+
+.Projects__milestoneHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Projects__milestoneTitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: hsl(var(--foreground));
+}
+
+.Projects__milestoneProgress {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: hsl(var(--muted-foreground));
+}
+
+.Projects__milestoneBar {
+  width: 100%;
+  height: 3px;
+  background: hsl(var(--muted));
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: var(--space-2);
+}
+
+.Projects__milestoneFill {
+  height: 100%;
+  background: hsl(var(--primary));
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal);
+}
+
+/* ── Tasks ── */
+.Projects__taskList {
+  list-style: none;
+  margin-top: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.Projects__task {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: hsl(var(--text-secondary));
+}
+
+.Projects__task--done {
+  text-decoration: line-through;
+  color: hsl(var(--muted-foreground));
+}
+
+/* ── Evidence ── */
+.Projects__evidence {
+  margin-top: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: hsl(var(--muted-foreground));
+}
+
+.Projects__evidenceLabel {
+  font-weight: var(--font-weight-medium);
+}
+
+.Projects__evidence a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+}
+
+.Projects__evidence a:hover {
+  text-decoration: underline;
+}
+
+/* ── Empty State ── */
+.Projects__empty {
+  padding: var(--space-8);
+  text-align: center;
+  background: hsl(var(--card));
+  border-radius: var(--radius-lg);
+  border: 2px dashed hsl(var(--border));
+  color: hsl(var(--muted-foreground));
+  font-family: var(--font-sans);
+}
+
+/* ── Modal ── */
+.Projects__modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.Projects__modal {
+  background: hsl(var(--card));
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  max-width: 560px;
+  width: 90%;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid hsl(var(--border));
+}
+
+.Projects__modalTitle {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-4);
+  color: hsl(var(--foreground));
+}
+
+.Projects__modalField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.Projects__modalRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.Projects__modalLabel {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: hsl(var(--foreground));
+}
+
+.Projects__modalInput {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.Projects__modalInput:focus {
+  border-color: hsl(var(--primary));
+}
+
+.Projects__modalTextarea {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.Projects__modalTextarea:focus {
+  border-color: hsl(var(--primary));
+}
+
+.Projects__modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}

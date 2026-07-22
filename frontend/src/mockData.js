@@ -107,3 +107,89 @@ export const mockSummaryData = {
     },
   },
 };
+
+// src/mockData.js
+
+// Mock projects
+export const mockProjects = [
+  {
+    id: 'project-1',
+    title: 'Progress-Bar',
+    description: 'A tool that will help developers keep up with their busy schedule',
+    deadline: '2026-10-20',
+    tags: ['Personal'],
+    status: 'active',
+    milestones: [
+      {
+        id: 'm1',
+        title: 'UI/UX Design',
+        description: 'Design the user interface and experience',
+        completed: true,
+        tasks: [
+          { id: 't1', title: 'Design UI in Figma', completed: true },
+          { id: 't2', title: 'Get students\' views', completed: true },
+          { id: 't3', title: 'Create directory structure', completed: true },
+          { id: 't4', title: 'Research on Vite', completed: true },
+        ],
+        evidence: 'https://figma.com/design/...',
+      },
+      {
+        id: 'm2',
+        title: 'Development',
+        description: 'Build the application',
+        completed: false,
+        tasks: [
+          { id: 't5', title: 'Set up Vite + React', completed: false },
+          { id: 't6', title: 'Build component library', completed: false },
+          { id: 't7', title: 'Implement routing', completed: false },
+        ],
+        evidence: null,
+      },
+      {
+        id: 'm3',
+        title: 'Deployment',
+        description: 'Deploy the application',
+        completed: false,
+        tasks: [
+          { id: 't8', title: 'Deploy to Vercel', completed: false },
+          { id: 't9', title: 'Set up custom domain', completed: false },
+        ],
+        evidence: null,
+      },
+    ],
+  },
+  {
+    id: 'project-2',
+    title: 'Zone 01 Portfolio',
+    description: 'Personal portfolio website for Zone 01',
+    deadline: '2026-08-15',
+    tags: ['Personal', 'Portfolio'],
+    status: 'active',
+    milestones: [
+      {
+        id: 'm4',
+        title: 'Design',
+        description: 'Design the portfolio layout',
+        completed: false,
+        tasks: [
+          { id: 't10', title: 'Design wireframes', completed: true },
+          { id: 't11', title: 'Design in Figma', completed: false },
+          { id: 't12', title: 'Get feedback', completed: false },
+        ],
+        evidence: null,
+      },
+      {
+        id: 'm5',
+        title: 'Development',
+        description: 'Build the portfolio',
+        completed: false,
+        tasks: [
+          { id: 't13', title: 'Set up project', completed: true },
+          { id: 't14', title: 'Build components', completed: false },
+          { id: 't15', title: 'Add animations', completed: false },
+        ],
+        evidence: null,
+      },
+    ],
+  },
+];

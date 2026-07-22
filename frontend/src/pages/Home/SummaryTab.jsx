@@ -29,7 +29,9 @@ export const SummaryTab = ({ data }) => {
       <div className={styles.SummaryTab__overall}>
         <div className={styles.SummaryTab__overallHeader}>
           <span className={styles.SummaryTab__overallLabel}>Overall Progress</span>
-          <span className={styles.SummaryTab__overallValue}>{overallProgress}%</span>
+          <span className={styles.SummaryTab__overallLabel}>
+            {completedMilestones} / {totalMilestones} goals completed
+          </span>
         </div>
         <div className={styles.SummaryTab__overallBar}>
           <div 
