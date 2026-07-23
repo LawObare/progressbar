@@ -26,22 +26,6 @@ export const mockTasks = [
   },
   // ... more tasks
 ];
-
-// Mock routines for "Today's Routines"
-export const mockRoutines = [
-  {
-    id: 'routine-1',
-    title: 'Daily Coding Practice',
-    frequency: 'daily',
-    timeStart: '09:00',
-    timeEnd: '10:00',
-    completed: true,
-    currentCount: 30,
-    targetCount: 30,
-  },
-  // ... more routines
-];
-
 // Summary data — aggregated from all categories
 export const mockSummaryData = {
   projects: [
@@ -259,5 +243,56 @@ export const mockLearningGoals = [
     keyTakeaway: 'Interfaces are powerful.',
     evidence: ['Certificate'],
     status: 'completed',
+  },
+];
+
+// src/mockData.js
+
+// ... existing mock data ...
+
+// Mock routines
+export const mockRoutines = [
+  {
+    id: 'routine-1',
+    title: 'Daily Coding Practice',
+    frequency: 'daily',
+    timeStart: '09:00',
+    timeEnd: '10:00',
+    completed: true,
+    currentCount: 30,
+    targetCount: 30,
+  },
+  {
+    id: 'routine-2',
+    title: 'Weekly LinkedIn Post',
+    frequency: 'weekly',
+    dayOfWeek: 'Monday',
+    timeStart: '14:00',
+    timeEnd: '15:00',
+    completed: false,
+    currentCount: 0,
+    targetCount: 4,
+  },
+  {
+    id: 'routine-3',
+    title: 'Weekly OSS Contribution',
+    frequency: 'weekly',
+    dayOfWeek: 'Wednesday',
+    timeStart: '15:00',
+    timeEnd: '16:00',
+    completed: false,
+    currentCount: 0,
+    targetCount: 4,
+  },
+  {
+    id: 'routine-4',
+    title: 'Monthly Portfolio Review',
+    frequency: 'monthly',
+    dayOfMonth: 15,
+    timeStart: '10:00',
+    timeEnd: '11:00',
+    completed: false,
+    currentCount: 0,
+    targetCount: 1,
   },
 ];
