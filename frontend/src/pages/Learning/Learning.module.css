@@ -391,3 +391,84 @@
   gap: var(--space-3);
   margin-top: var(--space-5);
 }
+
+/* ── Card Footer ── */
+.Learning__cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.Learning__cardTags {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.Learning__cardTag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.08);
+  border-radius: var(--radius-full);
+}
+
+.Learning__cardFrequency {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: hsl(var(--muted-foreground));
+}
+
+/* ── Modal Tags ── */
+.Learning__modalTagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-sm);
+  background: hsl(var(--background));
+}
+
+.Learning__modalTag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.08);
+  border-radius: var(--radius-full);
+}
+
+.Learning__modalTagRemove {
+  background: none;
+  border: none;
+  padding: 0;
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+.Learning__modalTagRemove:hover {
+  color: hsl(var(--danger));
+}
+
+.Learning__modalTagInputWrapper {
+  display: flex;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 150px;
+}

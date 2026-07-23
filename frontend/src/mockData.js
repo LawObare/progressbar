@@ -26,6 +26,7 @@ export const mockTasks = [
   },
   // ... more tasks
 ];
+
 // Summary data — aggregated from all categories
 export const mockSummaryData = {
   projects: [
@@ -214,10 +215,14 @@ export const mockLearningGoals = [
   {
     id: 'goal-1',
     title: 'Learn React',
-    provider: 'React Full Course (Udemy)',
-    type: 'Course',
-    totalModules: 16,
-    completedModules: 12,
+    sourceType: 'Course',
+    sourceName: 'React Full Course (Udemy)',
+    progressType: 'Modules',
+    completed: 12,
+    total: 16,
+    frequency: 'Daily',
+    targetDate: '2026-08-15',
+    tags: ['React', 'Frontend'],
     keyTakeaway: 'useEffect dependencies matter.',
     evidence: ['GitHub Repo', 'Certificate'],
     status: 'in-progress',
@@ -225,10 +230,14 @@ export const mockLearningGoals = [
   {
     id: 'goal-2',
     title: 'Learn SQL',
-    provider: 'SQL for Devs (YouTube)',
-    type: 'Tutorial',
-    totalModules: 12,
-    completedModules: 3,
+    sourceType: 'Tutorial',
+    sourceName: 'SQL for Devs (YouTube)',
+    progressType: 'Videos',
+    completed: 3,
+    total: 12,
+    frequency: '3 per Week',
+    targetDate: null,
+    tags: ['SQL', 'Database'],
     keyTakeaway: 'JOINs are still confusing.',
     evidence: [],
     status: 'in-progress',
@@ -236,10 +245,14 @@ export const mockLearningGoals = [
   {
     id: 'goal-3',
     title: 'Master Go Programming',
-    provider: 'Go by Example',
-    type: 'Book',
-    totalModules: 10,
-    completedModules: 10,
+    sourceType: 'Book',
+    sourceName: 'Go by Example',
+    progressType: 'Chapters',
+    completed: 10,
+    total: 10,
+    frequency: '4 per Week',
+    targetDate: '2026-06-30',
+    tags: ['Go', 'Backend'],
     keyTakeaway: 'Interfaces are powerful.',
     evidence: ['Certificate'],
     status: 'completed',
